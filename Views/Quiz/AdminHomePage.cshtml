@@ -26,8 +26,13 @@
 }
 
 <div class="container">
-    <div class="text-center">
-        <h4>Questions waiting for approve:</h4>
+    <div class="row">
+        <div class="col-10 text-center">
+            <h4>Questions waiting for approve:</h4>
+        </div>
+        <div class="col-2">
+            <a class="btn btn-success btn-sm text-light" asp-controller="Quiz" asp-action="CreateQuestion">Create Question</a>
+        </div>
     </div>
     <div class=container>
         <table class="table">
