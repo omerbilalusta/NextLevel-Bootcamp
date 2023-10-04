@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextLevel-Bootcamp-FinalWork", "..\NextLevel-Bootcamp-FinalWork\NextLevel-Bootcamp-FinalWork.csproj", "{32D26C8A-7752-40FC-B4CC-24B6E4A4B77C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextLevel-Bootcamp-FinalWork", "..\NextLevel-Bootcamp\NextLevel-Bootcamp-FinalWork.csproj", "{32D26C8A-7752-40FC-B4CC-24B6E4A4B77C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
