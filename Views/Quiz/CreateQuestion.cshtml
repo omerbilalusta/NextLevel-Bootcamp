@@ -1,0 +1,33 @@
+﻿@using NextLevel_Bootcamp_FinalWork.Models.ViewModels;
+@model CreateQuestionViewModel
+
+
+<style type="text/css">
+    .likecontainer {
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0,0,0, 0.1);
+        border-radius: 30px;
+        background-color: #ffffff;
+    }
+</style>
+
+<div class="container">
+    <div class="likecontainer mt-3">
+        <form asp-action="CreateQuestion">
+            <label asp-for="Content" class="control-label">Question Content</label>
+            <input asp-for="Content" class="form-control" />
+
+            <div class="row mt-2">
+                <div class="col-10"></div>
+                <div class="col-2">
+                    <button class="btn btn-success" type="submit">Create Question</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

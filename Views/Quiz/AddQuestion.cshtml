@@ -1,0 +1,119 @@
+﻿@using NextLevel_Bootcamp_FinalWork.Models.ViewModels;
+@model AddQuestionViewModel
+
+
+<style type="text/css">
+    .likecontainer {
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0,0,0, 0.1);
+        border-radius: 30px;
+        background-color: #ffffff;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h3>Quiz Name: @ViewBag.quizName</h3>
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+    <div class="likecontainer mt-3">
+        <form asp-action="AddQuestion">
+
+            <label asp-for="QuestionID" class="control-label">Pick Question</label>
+            <select asp-for="QuestionID" asp-items="@ViewBag.QuestionList" class="form-select">
+                <option>Pick Question</option>
+            </select>
+
+            <div class="row py-sm-1">
+                <div class="col-6"></div>
+                <div class="col-3 text-center">
+                    <label asp-for="Type1" class="form-check-label">Right Answer</label>
+                </div>
+                <div class="col-3 text-center">
+                    <label asp-for="Type1" class="form-check-label">Wrong Answer</label>
+                </div>
+            </div>
+
+
+            <div class="row gx-5">
+                <div class="col-6">
+                    <label asp-for="Content1" class="control-label">Answer 1</label>
+                    <input asp-for="Content1" class="form-control" />
+                </div>
+                <div class="col-3 text-center mt-4">
+                    <input asp-for="Type1" value="True" type="radio" />
+                </div>
+                <div class="col-3 text-center mt-4">
+                    <input asp-for="Type1" value="False" type="radio" />
+                </div>
+            </div>
+
+            <div class="row gx-5">
+                <div class="col-6">
+                    <label asp-for="Content2" class="control-label">Answer 2</label>
+                    <input asp-for="Content2" class="form-control" />
+                </div>
+                <div class="col-3 text-center mt-4">
+                    <input asp-for="Type2" value="True" type="radio" />
+                </div>
+                <div class="col-3 text-center mt-4">
+                    <input asp-for="Type2" value="False" type="radio" />
+                </div>
+            </div>
+
+            <div class="row gx-5">
+                <div class="col-6">
+                    <label asp-for="Content3" class="control-label">Answer 3</label>
+                    <input asp-for="Content3" class="form-control" />
+                </div>
+                <div class="col-3 text-center mt-4">
+                    <input asp-for="Type3" value="True" type="radio" />
+                </div>
+                <div class="col-3 text-center mt-4">
+                    <input asp-for="Type3" value="False" type="radio" />
+                </div>
+            </div>
+            <div class="row gx-5">
+                <div class="col-6">
+                    <label asp-for="Content4" class="control-label">Answer 4</label>
+                    <input asp-for="Content4" class="form-control" />
+                </div>
+                <div class="col-3 text-center mt-4">
+                    <input asp-for="Type4" value="True" type="radio" />
+                </div>
+                <div class="col-3 text-center mt-4">
+                    <input asp-for="Type4" value="False" type="radio" />
+                </div>
+            </div>
+
+            <div class="row gx-5">
+                <div class="col-6">
+                    <label asp-for="Content5" class="control-label">Answer 5</label>
+                    <input asp-for="Content5" class="form-control" />
+                </div>
+                <div class="col-3 text-center mt-4">
+                    <input asp-for="Type5" value="True" type="radio" />
+                </div>
+                <div class="col-3 text-center mt-4">
+                    <input asp-for="Type5" value="False" type="radio" />
+                </div>
+                <input asp-for="QuizID" value="@ViewBag.QuizID" hidden />
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-10"></div>
+                <div class="col-2">
+                    <button class="btn btn-success" type="submit">Create Quiz</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

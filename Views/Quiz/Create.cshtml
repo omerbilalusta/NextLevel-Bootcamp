@@ -1,0 +1,150 @@
+﻿@using NextLevel_Bootcamp_FinalWork.Models.ViewModels;
+
+
+@model QuizCreateViewModel
+
+
+<style type="text/css">
+    .likecontainer {
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0,0,0, 0.1);
+        border-radius: 30px;
+        background-color: #ffffff;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-9">
+            <form asp-action="Create">
+
+                <label asp-for="Name" class="control-label">Quiz Name</label>
+                <input asp-for="Name" class="form-control" />
+
+                <label asp-for="QuestionID" class="control-label">Soru Seç</label>
+                <select asp-for="QuestionID" asp-items="@ViewBag.QuestionList" class="form-select">
+                    <option>Soru Seç</option>
+                </select>
+
+                <div class="row py-sm-1">
+                    <div class="col-6"></div>
+                    <div class="col-3 text-center">
+                        <label asp-for="Type1" class="form-check-label">Doğru Cevap</label>
+                    </div>
+                    <div class="col-3 text-center">
+                        <label asp-for="Type1" class="form-check-label">Yanlış Cevap</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label asp-for="Content1" class="control-label">Cevap 1</label>
+                        <input asp-for="Content1" class="form-control" />
+                    </div>
+                    <div class="col-3 text-center mt-4">
+
+                        <input asp-for="Type1" value="True" type="radio" />
+                    </div>
+                    <div class="col-3 text-center mt-4">
+
+                        <input asp-for="Type1" value="False" type="radio" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label asp-for="Content2" class="control-label">Cevap 2</label>
+                        <input asp-for="Content2" class="form-control" />
+                    </div>
+                    <div class="col-3 text-center mt-4">
+                        <input asp-for="Type2" value="True" type="radio" />
+                    </div>
+                    <div class="col-3 text-center mt-4">
+                        <input asp-for="Type2" value="False" type="radio" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label asp-for="Content3" class="control-label">Cevap 3</label>
+                        <input asp-for="Content3" class="form-control" />
+                    </div>
+                    <div class="col-3 text-center mt-4">
+                        <input asp-for="Type3" value="True" type="radio" />
+                    </div>
+                    <div class="col-3 text-center mt-4">
+                        <input asp-for="Type3" value="False" type="radio" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label asp-for="Content4" class="control-label">Cevap 4</label>
+                        <input asp-for="Content4" class="form-control" />
+                    </div>
+                    <div class="col-3 text-center mt-4">
+                        <input asp-for="Type4" value="True" type="radio" />
+                    </div>
+                    <div class="col-3 text-center mt-4">
+                        <input asp-for="Type4" value="False" type="radio" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <label asp-for="Content5" class="control-label">Cevap 5</label>
+                        <input asp-for="Content5" class="form-control" />
+                    </div>
+                    <div class="col-3 text-center mt-4">
+                        <input asp-for="Type5" value="True" type="radio" />
+                    </div>
+                    <div class="col-3 text-center mt-4">
+                        <input asp-for="Type5" value="False" type="radio" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-9"></div>
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-outline-success">Quiz Oluştur</button>
+                    </div>
+                </div>
+             </form>
+        </div>
+        <div class="col-3">
+            <div class="likecontainer">
+                <div class="text-center">
+                    <h3 class="text-center">Usefull Tips</h3>
+                    <h4> </h4>
+                    <hr />
+                </div>
+                <p><strong>1.</strong> Select a question. There are several questions for your quiz, pick one.</p>
+                <p><strong>2.</strong> Determine the answers. You can put five answers for each question.</p>
+                <p><strong>3.</strong> Pick one or more correct answer related with your question.</p>
+                <br />
+                <br />
+                <br />
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="row">
+                <div class="col-sm-8"></div>
+                <div class="col-sm-4">
+                    <a class="btn btn-outline-dark btn-success text-white" asp-controller="Home" asp-action="Index">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

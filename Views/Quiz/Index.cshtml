@@ -1,0 +1,57 @@
+﻿@using NextLevel_Bootcamp_FinalWork.Models.ViewModels;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<QuizViewModel>
+
+
+@{
+    if (TempData["Status"] != null)
+    {
+        if (TempData["Status"].ToString().Length > 0)
+        {
+            <div class="container">
+                <div class="alert alert-warning">
+                    <p>@TempData["Status"].ToString()</p>
+                </div>
+            </div>
+        }
+    }
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-7"></div>
+        <div class="col-2">
+            <a class="btn btn-success btn-sm text-light" asp-controller="Quiz" asp-action="CreateQuestion">Create Question</a>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-2">
+            <a class="btn btn-success btn-sm text-light" asp-controller="Quiz" asp-action="Create">Create Quiz</a>
+        </div>
+    </div>
+    <div class=container>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Quiz Name</th>
+                    <th scope="col">Edit Quiz</th>
+                    <th scope="col">Delete Quiz</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td><a class="btn btn-success btn-sm text-light" asp-controller="Quiz" asp-action="Details" asp-route-id="@item.Id">Edit</a></td>
+                        <td><a class="btn btn-danger btn-sm text-light" asp-controller="Quiz" asp-action="DeleteQuiz" asp-route-id="@item.Id">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

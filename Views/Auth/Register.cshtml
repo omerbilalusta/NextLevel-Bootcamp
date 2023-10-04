@@ -1,0 +1,93 @@
+﻿@using NextLevel_Bootcamp_FinalWork.Models.ViewModels;
+@model SignUpViewModel
+
+<style type="text/css">
+    .likecontainer {
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0,0,0, 0.1);
+        border-radius: 30px;
+        background-color: #ffffff;
+    }
+</style>
+
+@{
+    if (TempData["SignUpMessage"] != null)
+    {
+        if (TempData["SignUpMessage"].ToString() == "Bu mail zaten kayıtlı. Giriş yapmayı deneyin.")
+        {
+            <div class="container">
+                <div class="alert alert-warning">
+                    <div class="row gx-5">
+                        <div class="col-10">
+                            <p>@TempData["SignUpMessage"]</p>
+                        </div>
+                        <div class="col-2">
+                            <a class="nav-link" asp-controller="Auth" asp-action="Index">Log In</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="container">
+                <div class="alert alert-warning">
+                    <div class="row gx-5">
+                        <div class="col-10">
+                            <p>@TempData["SignUpMessage"]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}
+
+
+<div class="container position-absolute">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="likecontainer position-relative">
+                <form asp-action="SignUp" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <label asp-for="FirstName" class="control-label">First Name</label>
+                    <input asp-for="FirstName" class="form-control" placeholder="First Name" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+
+                    <label asp-for="LastName" class="control-label">Surname</label>
+                    <input asp-for="LastName" class="form-control" placeholder="Surname" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+
+                    <label asp-for="Email" class="control-label">E-Mail</label>
+                    <input asp-for="Email" class="form-control" placeholder="E-Mail" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+
+                    <label asp-for="Password" class="control-label">Password</label>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+
+                    <label asp-for="ConfirmPassword" class="control-label">Confirm Password</label>
+                    <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm Password" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
+                    <div class="row mt-3">
+                        <div class="col-10"></div>
+                        <div class="col-2">
+                            <button class="btn btn-primary ">Register</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    
+</div>
+
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

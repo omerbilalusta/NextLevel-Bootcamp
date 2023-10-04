@@ -1,0 +1,53 @@
+﻿@using NextLevel_Bootcamp_FinalWork.Models.ViewModels;
+@model List<QuestionsViewModel>
+
+
+
+@{
+    if (TempData["QuestionStatus"] != null)
+    {
+        if (TempData["QuestionStatus"] == "The question has been approved by you, just now!")
+        {
+            <div class="container">
+                <div class="alert alert-success">
+                    <p>@TempData["QuestionStatus"].ToString()</p>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="container">
+                <div class="alert alert-danger">
+                    <p>@TempData["QuestionStatus"].ToString()</p>
+                </div>
+            </div>
+        }
+    }
+}
+
+<div class="container">
+    <div class="text-center">
+        <h4>Questions waiting for approve:</h4>
+    </div>
+    <div class=container>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Question Content</th>
+                    <th scope="col">Approve Question</th>
+                    <th scope="col">Decline Question</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Content</td>
+                        <td><a class="btn btn-success btn-sm text-light" asp-controller="Quiz" asp-action="ConfirmQuestion" asp-route-questionId="@item.ID">Approve</a></td>
+                        <td><a class="btn btn-danger btn-sm text-light" asp-controller="Quiz" asp-action="DeclineQuestion" asp-route-questionId="@item.ID">Decline</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

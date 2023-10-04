@@ -1,0 +1,67 @@
+﻿@using NextLevel_Bootcamp_FinalWork.Models.ViewModels;
+@model LogInViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style type="text/css">
+    .likecontainer {
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0,0,0, 0.1);
+        border-radius: 30px;
+        background-color: #ffffff;
+    }
+</style>
+
+
+@{
+    if (TempData["LogInMessage"] != null)
+    {
+        if (TempData["LogInMessage"].ToString().Length > 0)
+        {
+            <div class="container">
+                <div class="alert alert-warning">
+                    <p>@TempData["LogInMessage"].ToString()</p>
+                </div>
+            </div>
+        }
+    }
+}
+
+
+
+<div class="container">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="likecontainer my-5 text-center text-xl-start">
+                <form asp-action="LogIn" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" placeholder="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" placeholder="Password" type="password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <div class="row mt-2">
+                        <div class="col-10"></div>
+                        <div class="col-2">
+                            <button class="btn btn-primary">Log In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
